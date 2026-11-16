@@ -1,0 +1,20 @@
+schema_version: "1.1"
+name: computed-style-and-screenshot-gate
+expected_outcome: |
+  Executed branch (live reference and candidate available): the run writes
+  tokens, components, and states artifacts with resolved values and a field-level
+  style diff, fixes and re-extracts mismatches, and marks unobservable states
+  unknown. Only after gates 0-6 pass, including gate 6 state/behavior checks,
+  does it run the screenshot gate with matched viewport, DPR, theme, fonts, and
+  data on both apps. It records aligned non-blank full and focused captures,
+  lists masks, routes each residual to a code gate, and reports per-surface
+  results. Blocked-infrastructure branch: if the reference, candidate, or
+  automation capability is missing before gate work starts, the run reports the
+  overall run blocked by that concrete prerequisite (not a gate-7 pass or
+  failure), makes no capture or parity claim, and does not call the replication
+  complete. A later code-gate failure after a valid start is separate: work
+  proceeds up to the failure and gate 7 is not run as a pass. A late gate-7
+  blocked/failed drive is a third outcome: gates 0-6 artifacts exist, the run
+  reports the visual gate blocked with concrete drive/capture blocker evidence,
+  claims no nonblank matched capture or residual fixes, and claims no completion.
+  These branches are different verification outcomes and are not interchangeable.
