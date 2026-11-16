@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: settings-nested-dialog-coverage
+expected_outcome: |
+  The run produces .agents/ui-replication/frame.yaml and coverage.yaml before
+  implementation. Coverage lists the settings root, Account panel, Preferences
+  tab, Delete confirmation dialog, and the nested confirm dialog as distinct
+  surfaces, each with an entry path, evidence, both reachable viewports, and an
+  explicit status. Non-default states are represented where observable; an
+  unobserved state may remain open/unknown with a reason rather than being forced
+  into deviated/out-of-scope. Deviated/out-of-scope carries explicit user/product
+  approval. Target layout files exist for each covered surface/viewport with
+  non-empty nodes. If the fixture, URL, or automation capability is missing, the
+  run reports blocked with that concrete precondition and does not fabricate
+  artifacts.

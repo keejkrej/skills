@@ -1,0 +1,20 @@
+schema_version: "1.1"
+name: layout-diff-before-style
+expected_outcome: |
+  Executed branch (candidate and rendered extraction available): the run creates
+  target and actual layout specs with identical schema, stable keys, units, and
+  property set. The defect ledger records hierarchy, parent, sibling-order, and
+  alignment defects with node IDs and gate numbers before any style or token
+  defects. Actual values come from rendered extraction, the run asserts the
+  extraction is non-empty, and each structural fix is followed by re-extraction
+  and re-diff. It adds a framework-native executable regression check derived
+  from the target spec, using existing repo tooling, that asserts a nonempty
+  rendered selection and reuses the neutral tolerance/normalization decisions;
+  failures are resolved and re-run before style work or final screenshots, and
+  the check path, command, environment, counts, and results are recorded in the
+  gate report. The final report states which structural gates pass and does not
+  claim completion from styling or a screenshot alone. Blocked-infrastructure
+  branch: if a required build, URL, or automation capability is missing, the run
+  reports the concrete missing precondition early, fabricates no target/actual
+  pair or fixed defects, and makes no parity or completion claim. The blocked
+  branch is not an executed success.
